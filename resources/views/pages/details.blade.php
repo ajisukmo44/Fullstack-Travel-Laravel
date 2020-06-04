@@ -49,49 +49,56 @@
                         </div>
                         </div>
                     @endif
-                        <h2 class="mt-4">Tentang Wisata</h2>
-                        <p style="text-align:justify;">
-                           {!! $item->about !!}
-                        </p>
-                        <div class="features row">
-                            <div class="col-md-4">
-                                <div class="description">
-                                    <img src="{{ url('frontend/images/ic_event.png') }}" alt="" class="features-image">
-                                    <div class="description">
-                                        <h3>Features Event</h3>
-                                        <p>Tari Kecak</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 border-left">
-                                <div class="description">
-                                    <img src="{{ url('frontend/images/ic_event.png') }}" alt="" class="features-image">
-                                    <div class="description">
-                                        <h3>Features Event</h3>
-                                        <p>Tari Kecak</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 border-left">
-                                <div class="description">
-                                    <img src="{{ url('frontend/images/ic_event.png') }}" alt="" class="features-image">
-                                    <div class="description">
-                                        <h3>Features Event</h3>
-                                        <p>Tari Kecak</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <h2>Tentang Wisata</h2>
+                    <p>
+                      {!! $item->about !!}
+                    </p>
+                    <div class="features row">
+                      <div class="col-md-4">
+                        <img
+                          src="{{ url('frontend/images/ic_event.png') }}"
+                          alt=""
+                          class="features-image"
+                        />
+                        <div class="description">
+                          <h3>Featured Event</h3>
+                          <p>{{ $item->featured_event }}</p>
                         </div>
+                      </div>
+                      <div class="col-md-4 border-left">
+                        <div class="description">
+                          <img
+                            src="{{ url('frontend/images/ic_language.png') }}"
+                            alt=""
+                            class="features-image"
+                          />
+                          <div class="description">
+                            <h3>Language</h3>
+                            <p>{{ $item->language }}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 border-left">
+                        <div class="description">
+                          <img
+                            src="{{ url('frontend/images/ic_food.png') }}"
+                            alt=""
+                            class="features-image"
+                          />
+                          <div class="description">
+                            <h3>Foods</h3>
+                            <p>{{ $item->foods }}</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="card card-details card-right">
                         <h2>Member Are Going</h2>
                         <div class="members my-2">
                             <img src="{{ url('frontend/images/testi.png') }}" alt="manusia" class="members-image mr-1"/>
-                            <img src="{{ url('frontend/images/testi2.png') }}" alt="manusia" class="members-image mr-1"/>
-                            <img src="{{ url('frontend/images/testi3.png') }}" alt="manusia" class="members-image mr-1"/>
-                            <img src="{{ url('frontend/images/testi.png') }}" alt="manusia" class="members-image"/>
                         </div>
                         <hr>
                         <h2>Trip Information</h2>
@@ -99,7 +106,8 @@
                             <tr>
                                 <th width="50%">Date Of Depature</th>
                                 <td width="50%" class="text-right">
-                                  {{ \Carbon\Carbon::create($item->date_of_departure)->format('F n, Y') }}
+                                  {{ \Carbon\Carbon::create($item->depature_date)->format('n, F Y') }}
+        
                                 </td>
                             </tr>
                             <tr>

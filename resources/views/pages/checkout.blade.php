@@ -42,9 +42,8 @@
                                 <thead>
                                     <tr>
                                         <td>Picture</td>
-                                        <td>Name</td>
-                                        <td>Nationality</td>
-                                        <td>Visa</td>
+                                        <td>username</td>
+                                        <td>No Hp</td>
                                         <td>Passport</td>
                                         <td>Action</td>
                                     </tr>
@@ -54,10 +53,9 @@
                                 <tr>
                                 <td><img src="https://ui-avatars.com/api/?name={{ $detail->username }}" height="60"  class="rounded-circle"></td>
                                     <td class="align-middle">{{ $detail->username }}</td>
-                                    <td class="align-middle">{{ $detail->nationality }}</td>
-                                    <td class="align-middle">{{ $detail->is_visa ? '30 Days'  : 'N/A' }}</td>
-                                    <td class="align-middle"> {{ \Carbon\Carbon::createFromDate($detail->doe_passport) > \Carbon\Carbon::now() ? 'Active' : 'Inactive' }}
-                                    </td>
+                                    <td class="align-middle">{{ $detail->no_hp }}</td>
+                                    <td class="align-middle">{{ $detail->is_passport ? 'Not Indonesia'  : 'Indonesia' }}</td>
+                                      </td>
                                     <td class="align-middle">  <a href="{{ route('checkout-remove', $detail->id) }}">X
                                         <img src="{{ url('frontend/images/ic_remove.png') }}" alt="" />
                                         </a>
@@ -81,22 +79,17 @@
                                 <input type="text" class="form-control mb-2 mr-sm-2" placeholder="username"
                                     id="username" name="username" required>
 
-                                    <label for="nationality" class="sr-only">Nationality</label>
-                                <input type="text" class="form-control mb-2 mr-sm-2" style="width:45px" placeholder="NA"
-                                    id="nationality" name="nationality"  required>
-
-                                <label for="is_visa" class="sr-only">Visa</label>
-                                <select name="is_visa" id="is_visa" class="custom-select mb-2 mr-sm-2">
-                                    <option value="" selected>VISA</option>
-                                    <option value="1">30D</option>
-                                    <option value="0">N/A</option>
+                                <label for="is_passport" class="sr-only">Nationality</label>
+                                <select name="is_passport" id="is_visa" class="custom-select mb-2 mr-sm-2">
+                                    <option value="" selected>Nationality</option>
+                                    <option value="0">Indonesia</option>
+                                    <option value="1">Not Indonesia</option>
                                 </select>
                                 
-                                <label for="doe_passport" class="sr-only">Passport</label>
-                                <div class="input-group mb-2 mr-sm-2">
-                                <input type="text" class="form-control datepicker" id="doe_passport" name="doe_passport"
-                                        placeholder="Doe Passport" width="40px">
-                                </div>
+                                <label for="nationality" class="sr-only">Nationality</label>
+                                <input type="text" class="form-control mb-2 mr-sm-2" style="width:145px" placeholder="no hp"
+                                    id="no_hp" name="no_hp"  required>
+                                
                                 <button class="btn btn-add-now mb-2 px-4" type="submit">Add Now</button>
                             </form>
                             <h3 class="mt-2 mb-0">
@@ -117,8 +110,8 @@
                             <td width="50%" class="text-right">{{ $item->details->count() }} person</td>
                             </tr>
                             <tr>
-                                <th width="50%">Addtional Visa</th>
-                            <td width="50%" class="text-right">{{ $item->additional_visa }}</td>
+                                <th width="50%">Addtional Passport</th>
+                            <td width="50%" class="text-right">{{ $item->additional_passport }}</td>
                             </tr>
                             <tr>
                                 <th width="50%">Trip Price</th>

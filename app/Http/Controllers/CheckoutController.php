@@ -29,8 +29,8 @@ class CheckoutController extends Controller
 
         $transaction = Transaction::create([
             'travel_packages_id' => $id,
-            'user_id' => 5,
-            'additional_visa' => 0,
+            'user_id' => Auth::user()->id,
+            'additional_passport' => 0,
             'transaction_total' => $travel_package->price,
             'transaction_status' => 'IN_CART'
         ]);
@@ -38,9 +38,8 @@ class CheckoutController extends Controller
         TransactionDetail::create([
             'transactions_id' => $transaction->id,
             'username'        => Auth::user()->username,
-            'nationality'     => 'ID',
-            'is_visa'         => false,
-            'doe_passport'    => Carbon::now()->addYear(5)
+            'no_hp'           => Auth::user()->no_hp,
+            'is_passport'     => false
         ]);
 
         return redirect()->route('checkout', $transaction->id);
@@ -51,8 +50,7 @@ class CheckoutController extends Controller
     {
         $request->validate([
             'username' => 'required|string|exists:users,username',
-            'is_visa'  => 'required|boolean',
-            'doe_passport' => 'required'
+            'is_passport'  => 'required|boolean'
         ]);
 
         $data = $request->all();
@@ -62,9 +60,9 @@ class CheckoutController extends Controller
 
         $transaction = Transaction::with(['travel_package'])->find($id);
 
-        if ($request->is_visa) {
-            $transaction->transaction_total += 190;
-            $transaction->additional_visa += 190;
+        if ($request->is_passport) {
+            $transaction->transaction_total += 700000;
+            $transaction->additional_passport += 700000;
         }
         $transaction->transaction_total +=
             $transaction->travel_package->price;
@@ -80,9 +78,9 @@ class CheckoutController extends Controller
 
         $transaction = Transaction::with(['details', 'travel_package'])->findOrFail($item->transactions_id);
 
-        if ($item->is_visa) {
+        if ($item->is_passport) {
             $transaction->transaction_total -= 190;
-            $transaction->additional_visa -= 190;
+            $transaction->additional_passport -= 190;
         }
         $transaction->transaction_total -=
             $transaction->travel_package->price;
@@ -95,12 +93,14 @@ class CheckoutController extends Controller
 
     public function success(Request $request, $id)
     {
-        $transaction = Transaction::findOrFail($id);
+        $transaction = Transaction::with(['details', 'travel_package.galleries', 'user'])->findOrFail($id);
         $transaction->transaction_status = 'PENDING';
 
         $transaction->save();
 
-        //kirim ke email
+        // return $transaction;
+
+        // // Kirim email ke user eticket nya
         // Mail::to($transaction->user)->send(
         //     new TransactionSuccess($transaction)
         // );
@@ -108,5 +108,3 @@ class CheckoutController extends Controller
         return view('pages.success');
     }
 }
-
-// with(['details', 'travel_package.galleries', 'user'])->

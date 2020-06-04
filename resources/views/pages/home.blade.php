@@ -25,19 +25,19 @@ NOMADS
     <div class="container">
         <section class="section-stats row justify-content-center" id="stats">
             <div class="col-3 col-md-2 stats-detail">
-                <h2>20K</h2>
+                <h2>1K</h2>
                 <p>Members</p>
             </div>
             <div class="col-3 col-md-2 stats-detail">
-                <h2>12</h2>
-                <p>Countries</p>
+                <h2>24+</h2>
+                <p>Cities</p>
             </div>
             <div class="col-3 col-md-2 stats-detail">
-                <h2>3K</h2>
+                <h2>120+</h2>
                 <p>Hotel</p>
             </div>
             <div class="col-3 col-md-2 stats-detail">
-                <h2>72</h2>
+                <h2>12+</h2>
                 <p>Patners</p>
             </div>
         </section>
@@ -121,7 +121,7 @@ NOMADS
                         </div>
                         <hr>
                         <p class="trip-to mt-2">
-                            Trip to Mount Bromo
+                            Trip to Lombok
                         </p>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ NOMADS
                     <div class="card card-testimonial text-center">
                         <div class="testimonial-content">
                             <img src="frontend/images/testi2.png" alt="testi" class="mb-4 rounded-circle">
-                            <h3 class="mb-4">Aji Sukmo</h3>
+                            <h3 class="mb-4">Uri Rizki</h3>
                             <p class="testimonial">
                                 "The trip was amazing and I saw something mesmerizing in that mount that make me
                                 want
@@ -138,7 +138,7 @@ NOMADS
                         </div>
                         <hr>
                         <p class="trip-to mt-2">
-                            Trip to Mount Bromo
+                            Trip to Nusa Penida
                         </p>
                     </div>
                 </div>
@@ -146,7 +146,7 @@ NOMADS
                     <div class="card card-testimonial text-center">
                         <div class="testimonial-content">
                             <img src="frontend/images/testi3.png" alt="testi" class="mb-4 rounded-circle">
-                            <h3 class="mb-4">Aji Sukmo</h3>
+                            <h3 class="mb-4">Julaeha</h3>
                             <p class="testimonial">
                                 "The trip was amazing and I saw something mesmerizing in that mount that make me
                                 want
@@ -155,7 +155,7 @@ NOMADS
                         </div>
                         <hr>
                         <p class="trip-to mt-2">
-                            Trip to Mount Bromo
+                            Trip to Raja Ampat
                         </p>
                     </div>
                 </div>
